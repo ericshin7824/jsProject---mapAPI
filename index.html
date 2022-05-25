@@ -4,17 +4,68 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Google Maps API</title>
+        <title>Map & Distance Calculator - Google Maps API</title>
+        <link rel="stylesheet" href="content/bootstrap.min.css" />
+        <script src="https://kit.fontawesome.com/2310046e07.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
-        <h1>Google Maps</h1>
+        <nav>
+            <div class="contents-container">
+                <a class="logo" href="https://www.erichoonshin.com/">Hn.</a>
+            </div>
+        </nav>
+        <main>
+            <div class="map-app-wrapper">
+                <section class="jumbotron">
+                    <div class="controls-container container-fluid">
+                        <div class="title">
+                            <h1>Map</h1>
+                            <span class="and">&</span>
+                            <h2><span>Distance</span><span>Calculator</span></h2>
+                        </div>
+                        <ul class="techs-container">
+                            <h3>JavaScript</h3>
+                            <span></span>
+                            <h3>Google Map API</h3>
+                            <span></span>
+                            <h3>bootstrap</h3>
+                        </ul>
+                        <!-- <p>Hey! check the map so you don't get lost.</p> -->
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <input type="text" class="to form-control" id="from" placeholder="Departure" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <input type="text" class="form-control" id="to" placeholder="Destination" />
+                                </div>
+                            </div>
+                        </form>
 
-        <div id="map"></div>
+                        <div class="btn-container col-xs-offset-2 col-xs-10">
+                            <button class="control-btn" onclick="calcRoute()">
+                                <span>Start</span>
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="control-btn">
+                                <span>Stop</span>
+                                <i class="fas fa-stop"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="map-container container-fluid">
+                        <div id="googleMap"></div>
+                        <div id="output"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQVl2djmKpec0ox-NdomMJoSkRGriMX90&libraries=places"></script>
         <script src="mapApp.js"></script>
-        <script
-            async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDli3mKkDacs1Aa3zMVjVhqD9PSJpz8Gnw&callback=initMap"
-        ></script>
     </body>
 </html>
