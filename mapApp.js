@@ -1,5 +1,5 @@
 'use stric';
-
+const output = document.querySelector('#output');
 let mylatlng = { lat: 34.052235, lng: -118.243683 };
 let mapOptions = {
     center: mylatlng,
@@ -19,13 +19,20 @@ let directionsDisplay = new google.maps.DirectionsRenderer();
 //bind the DirectionsRenderer to the map
 directionsDisplay.setMap(map);
 
+// init map
+function initMap() {
+    directionsDisplay.setDirections({ routes: [] });
+    output.innerHTML = '';
+    map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+}
+
 // function
 function calcRoute() {
     // create request
     let request = {
         origin: document.getElementById('from').value,
         destination: document.getElementById('to').value,
-        travelMode: google.maps.TravelMode.DRIVING, // able to change walking,bycycle and ...
+        travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.IMPERIAL,
     };
 
@@ -33,7 +40,7 @@ function calcRoute() {
     directionsService.route(request, function (result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             // get distance and time
-            const output = document.querySelector('#output');
+            // const output = document.querySelector('#output');
             output.innerHTML =
                 "<div class='alert-info'> from: " +
                 document.getElementById('from').value +
