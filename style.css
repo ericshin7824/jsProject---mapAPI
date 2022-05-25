@@ -127,7 +127,13 @@ nav .contents-container {
   width: 100%;
   padding-left: var(--space-40);
   padding-right: var(--space-40);
-  text-align: center;
+}
+
+nav .contents-container .logo {
+  color: var(--primary-color-light);
+  font-size: var(--logo-size);
+  font-weight: 800;
+  cursor: pointer;
 }
 
 main {
@@ -144,12 +150,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.logo {
-  color: var(--primary-color-light);
-  font-size: var(--logo-size);
-  font-weight: 800;
 }
 
 .map-app-wrapper {
